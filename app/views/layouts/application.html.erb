@@ -12,7 +12,15 @@
         </head>
 
   <body>
-       <%= link_to "Login with Github", "/auth/github"  %>
+       <% if current_user %>
+         <%= link_to "Logout", logout_path, method: :delete  %>
+            <div>
+               Logged in as <%= current_user.name %>
+            </div>
+       <% else %>
+         <%= link_to "Login with Github", "/auth/github"  %>
+       <% end %>
+
     <nav role="navigation">
       <span class="entypo-menu" id="toggle-menu"></span>
     <div class="logo">
