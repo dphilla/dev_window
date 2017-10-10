@@ -4,11 +4,29 @@
     <title>DevWindow</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+              <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+              <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        </head>
 
   <body>
+       <%= link_to "Login with Github"  %>
+    <nav role="navigation">
+      <span class="entypo-menu" id="toggle-menu"></span>
+    <div class="logo">
+      <span class="entypo-compass"></span>DevWindow
+    </div>
+      <ul>
+        <li><a href="#">My Recent Activty</a></li>
+        <li><a href="#">My Followers Recent Activity</a></li>
+        <li><a href="#">Organizations</a></li>
+        <li><a href="#">My Repos</a></li>
+        <li><a href="#">Opened Pull Requests</a></li>
+      </ul>
+    </nav>
+        <a href="#">Create New Repo</a>
     <%= yield %>
   </body>
 </html>
