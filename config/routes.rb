@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   #
   root "welcome#index"
 
-  get "/login/oauth/authorize", to: "sessions#create"
-end
+  get "/auth/:provider/callback", to: "sessions#create"
+  end
