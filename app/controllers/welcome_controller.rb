@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    User.show_basic_info(current_user.username)
+    @user = UserInfo.info(current_user.username) if current_user
   end
 
 end
