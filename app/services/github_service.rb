@@ -33,6 +33,7 @@ class GithubService
 
   def recent_commits
     #try search commits, or add up all the stuff
+    #"Authentication: token TOKEN" \-H "Accept: application/vnd.github.cloak-preview+json" \https://api.github.com/search/commits\?q\=user=dphilla\&sort\=author-date
   end
 
   def following_commits
