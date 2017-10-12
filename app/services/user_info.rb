@@ -18,14 +18,11 @@ class UserInfo
     @starred_repos         = service(user).starred
     @following             = service(user).following
     @followers             = service(user).followers
-    #@recent_commits        = service(user).recent_commits
+    @recent_commits        = nil
     @following_commits     = nil
     @orgs                  = service(user).orgs
     @repos                 = service(user).repos
   end
-
-
-
 
    def service(user)
       GithubService.new(user)
@@ -39,5 +36,14 @@ class UserInfo
       commit_messages << commit[:commit][:message]
      end
      @following_commits = commit_messages
+   end
+
+   def recent_commits
+     all_commits = service(@user).recent_commits
+     commit_messages = []
+     all_commits.each do |commit|
+      commit_messages << commit[:commit][:message]
+     end
+     @recent_commits = commit_messages
    end
 end

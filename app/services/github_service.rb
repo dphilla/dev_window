@@ -37,7 +37,7 @@ class GithubService
       faraday.adapter Faraday.default_adapter
     end
     response = conn.get("/search/commits\?q\=user=#{@user}\&sort\=author-date")
-    parsed = JSON.parse(response.body, symbolize_names: true)
+    parsed = JSON.parse(response.body, symbolize_names: true)[:items]
   end
 
   def following_commits #refactor this guy it's too slow!'
