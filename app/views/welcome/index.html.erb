@@ -5,7 +5,15 @@
 <div>
 <%= image_tag @user.image  %>
 </div>
-
+<div>
+  starred repos <%= @user.starred_repos.count %>
+</div>
+<div>
+   <%= @user.followers.count %> followers
+</div>
+<div>
+  <%= @user.following.count %> following
+</div>
 
 
 

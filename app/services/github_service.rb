@@ -14,5 +14,41 @@ class GithubService
   end
 
 
+  def starred
+    response = @conn.get("users/#{@user}/starred")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def following
+    response = @conn.get("users/#{@user}/following")
+    JSON.parse(response.body, symbolize_names: true)
 
   end
+
+  def followers
+    response = @conn.get("users/#{@user}/followers")
+    JSON.parse(response.body, symbolize_names: true)
+
+  end
+
+  def recent_commits
+    #try search commits, or add up all the stuff
+  end
+
+  def following_commits
+    #try search commits, maybe
+  end
+
+  def orgs
+    response = @conn.get("users/#{@user}/orgs")
+    JSON.parse(response.body, symbolize_names: true)
+
+  end
+
+  def repos
+    response = @conn.get("users/#{@user}/repos")
+    JSON.parse(response.body, symbolize_names: true)
+
+  end
+
+ end
