@@ -40,17 +40,17 @@ class GithubService
     parsed = JSON.parse(response.body, symbolize_names: true)
   end
 
-  def following_commits #refactor this guy
+  def following_commits #refactor this guy it's too slow!'
     conn = Faraday.new(url: "https://api.github.com") do |faraday|
       faraday.headers["Accept"] = "application/vnd.github.cloak-preview+json"
       faraday.adapter Faraday.default_adapter
     end
     commits = []
     following.each do |followed_user|
-     response = conn.get("/search/commits\?q\=user=#{followed_user[:login]}\&sort\=author-date")
-     commits  << JSON.parse(response.body)["items"]
+     response = conn.get("/search/commits\?q\=user=#{followed_user["login"]}\&sort\=author-date")
+     commits << JSON.parse(response.body, symbolize_names: true)[:items]
     end
-    commits
+    commits.flatten
   end
 
   def orgs
