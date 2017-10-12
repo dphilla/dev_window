@@ -32,12 +32,25 @@ class GithubService
   end
 
   def recent_commits
-    #try search commits, or add up all the stuff
-    #"Authentication: token TOKEN" \-H "Accept: application/vnd.github.cloak-preview+json" \https://api.github.com/search/commits\?q\=user=dphilla\&sort\=author-date
+    conn = Faraday.new(url: "https://api.github.com") do |faraday|
+      faraday.headers["Accept"] = "application/vnd.github.cloak-preview+json"
+      faraday.adapter Faraday.default_adapter
+    end
+    response = conn.get("/search/commits\?q\=user=#{@user}\&sort\=author-date")
+    parsed = JSON.parse(response.body, symbolize_names: true)
   end
 
-  def following_commits
-    #try search commits, maybe
+  def following_commits #refactor this guy
+    conn = Faraday.new(url: "https://api.github.com") do |faraday|
+      faraday.headers["Accept"] = "application/vnd.github.cloak-preview+json"
+      faraday.adapter Faraday.default_adapter
+    end
+    commits = []
+    following.each do |followed_user|
+     response = conn.get("/search/commits\?q\=user=#{followed_user[:login]}\&sort\=author-date")
+     commits  << JSON.parse(response.body)["items"]
+    end
+    commits
   end
 
   def orgs

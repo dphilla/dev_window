@@ -12,15 +12,15 @@ class UserInfo
 
 
   def initialize(user)
-    @name                  = service.new(user).basic_info[:name]
-    @image                 = service.new(user).basic_info[:avatar_url]
-    @starred_repos         = service.new(user).starred
-    @following             = service.new(user).following
-    @followers             = service.new(user).followers
-    #@recent_commits        = service.new(user).recent_commits
-    #@following_commits     = service.new(user).following_commits
-    @orgs                  = service.new(user).orgs
-    @repos                 = service.new(user).repos
+    @name                  = service(user).basic_info[:name]
+    @image                 = service(user).basic_info[:avatar_url]
+    @starred_repos         = service(user).starred
+    @following             = service(user).following
+    @followers             = service(user).followers
+    @recent_commits        = service(user).recent_commits
+    @following_commits     = service(user).following_commits
+    @orgs                  = service(user).orgs
+    @repos                 = service(user).repos
   end
 
 
