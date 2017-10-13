@@ -1,22 +1,21 @@
+<% if current_user %>
+<%#<div>%>
+<%#<%= @user.name %>%>
+<%#</div>%>
+<%#<div>%>
+<%#<%= image_tag @user.image  %>%>
+<%#</div>%>
+<%#<div>%>
+  <%#starred repos <%= @user.starred_repos.count %>%>
+<%#</div>%>
+<%#<div>%>
+   <%#<%= @user.followers.count %> followers%>
+<%#</div>%>
+<%#<div>%>
+  <%#<%= @user.following.count %> following%>
+<%#</div>%>
+<% end %>
 
-<div>
-<%= @user.name %>
-</div>
-<div>
-<%= image_tag @user.image  %>
-</div>
-<div>
-  starred repos <%= @user.starred_repos.count %>
-</div>
-<div>
-   <%= @user.followers.count %> followers
-</div>
-<div>
-  <%= @user.following.count %> following
-</div>
-
-
-<%= @user.recent_commits  %>
 
 
 

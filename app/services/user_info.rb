@@ -18,8 +18,8 @@ class UserInfo
     @starred_repos         = service(user).starred
     @following             = service(user).following
     @followers             = service(user).followers
-    @recent_commits        = nil
-    @following_commits     = nil
+    @recent_commits
+    @following_commits
     @orgs                  = service(user).orgs
     @repos                 = service(user).repos
   end

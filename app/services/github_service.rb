@@ -22,13 +22,11 @@ class GithubService
   def following
     response = @conn.get("users/#{@user}/following")
     JSON.parse(response.body, symbolize_names: true)
-
   end
 
   def followers
     response = @conn.get("users/#{@user}/followers")
     JSON.parse(response.body, symbolize_names: true)
-
   end
 
   def recent_commits
@@ -56,13 +54,11 @@ class GithubService
   def orgs
     response = @conn.get("users/#{@user}/orgs")
     JSON.parse(response.body, symbolize_names: true)
-
   end
 
   def repos
     response = @conn.get("users/#{@user}/repos")
     JSON.parse(response.body, symbolize_names: true)
-
   end
 
  end
