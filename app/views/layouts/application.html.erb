@@ -27,13 +27,14 @@
       <span class="entypo-compass"></span>DevWindow
     </div>
       <ul>
-        <li><a href="/recent_activity">My Recent Activty</a></li>
-        <li><a href="/following/recent_activity">My Followers Recent Activity</a></li>
-        <li><a href="/orgs">Organizations</a></li>
-        <li><a href="/repos">My Repos</a></li>
+        <% if current_user %>
+          <li><a href="/recent_activity">My Recent Activty</a></li>
+          <li><a href="/following/recent_activity">My Followers Recent Activity</a></li>
+          <li><a href="/orgs">Organizations</a></li>
+          <li><a href="/repos">My Repos</a></li>
+        <% end %>
       </ul>
     </nav>
-        <a href="#">Create New Repo</a>
     <%= yield %>
   </body>
 </html>
